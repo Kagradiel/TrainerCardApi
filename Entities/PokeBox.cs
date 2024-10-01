@@ -10,11 +10,11 @@ namespace TrainerCardBackEnd.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public uint BoxId { get; set; }
 
-        public List<int> PokemonsIds { get; set; }
+        [Required]
+        public List<int> PokemonsIds { get; set; } = default!;
 
         [ForeignKey("Trainer")]
         public uint TrainerId { get; set; }
-        public virtual Trainer Trainer { get; set; }
 
     }
 }

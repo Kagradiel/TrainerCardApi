@@ -18,7 +18,7 @@ namespace TrainerCardBackEnd.Context
         {
             modelBuilder.Entity<Trainer>()
                 .HasOne(t => t.MyPokebox)
-                .WithOne(p => p.Trainer)
+                .WithOne()
                 .HasForeignKey<PokeBox>(p => p.TrainerId);
         }
 

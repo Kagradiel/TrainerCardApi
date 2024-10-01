@@ -1,14 +1,9 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TrainerCardBackEnd.Entities
+namespace TrainerCardBackEnd.DTOs
 {
-    public class Trainer
+    public class TrainerCreateDto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public uint Id { get; set; } = default!;
-
         [Required]
         [StringLength(100)]
         public string Name { get; set; } = default!;
@@ -23,7 +18,6 @@ namespace TrainerCardBackEnd.Entities
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "dd/MM/yyyy", ApplyFormatInEditMode = true)]
         public DateTime Birth { get; set; }
 
         [Required]
@@ -38,7 +32,6 @@ namespace TrainerCardBackEnd.Entities
         [Required]
         public byte[] Photo { get; set; } = default!;
 
-        public virtual PokeBox MyPokebox { get; set; } = default!;
-
+        public PokeBoxCreateDto MyPokebox { get; set; } = new PokeBoxCreateDto();
     }
 }
