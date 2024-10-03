@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace TrainerCardBackEnd.DTOs
 {
-    public class TrainerCreateDto
+    public class TrainerUpdateDto
     {
         [Required]
         [StringLength(100)]
@@ -18,8 +19,7 @@ namespace TrainerCardBackEnd.DTOs
         public string Password { get; set; } = default!;
 
         [Required]
-        [DataType(DataType.Date)]
-        [JsonConverter(typeof(DateTimeJsonConverter))]
+        [RegularExpression(@"^\d{2}/\d{2}/\d{4}$", ErrorMessage = "Data deve estar no formato dd/MM/yyyy")]
         public DateTime Birth { get; set; }
 
         [Required]
@@ -34,6 +34,5 @@ namespace TrainerCardBackEnd.DTOs
         [Required]
         public byte[] Photo { get; set; } = default!;
 
-        public PokeBoxDto MyPokebox { get; set; } = new PokeBoxDto();
     }
 }

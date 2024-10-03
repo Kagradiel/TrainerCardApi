@@ -11,8 +11,8 @@ namespace TrainerCardBackEnd.Context
 
         }
 
-        public DbSet<Trainer> Trainers { get; set; }
-        public DbSet<PokeBox> PokeBoxes { get; set; }
+        public DbSet<Trainer> Trainers { get; set; } = null!;
+        public DbSet<PokeBox> PokeBoxes { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
